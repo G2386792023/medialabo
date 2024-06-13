@@ -8,20 +8,19 @@ p.info {
 }
 
 h1 {
-	background-color: white;
+	color: white;
 	text-shadow: navy;
 }
 
 h2 {
 	font-family:  cursive;
 	color: #3f3faf;
-	border: solid 1px black;
 	margin: 5px;
 	background: linear-gradient(white, #ffefaf);
 }
 
 div#zentai {
-	display: flex;
+	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-auto-rows: 200px 200px;
 	grid-gap: 10px;
