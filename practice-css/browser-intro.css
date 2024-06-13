@@ -24,6 +24,7 @@ div#zentai {
 	grid-template-columns: 1fr 1fr;
 	grid-auto-rows: 200px 200px;
 	grid-gap: 10px;
+	width: 200px;
 }
 
 div#zentai > div {
@@ -33,7 +34,7 @@ div#zentai > div {
 img.sign {
     float: right;
 
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: 10px 0 10px 10px;
 }
