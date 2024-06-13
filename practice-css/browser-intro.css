@@ -27,7 +27,7 @@ div#zentai {
 }
 
 div#zentai > div {
-	padding-left: 5px;
+	padding: 5px;
 	background-color: #ffefaf;
 }
 img.sign {
