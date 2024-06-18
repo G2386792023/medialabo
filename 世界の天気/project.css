@@ -1,4 +1,4 @@
-.full-img{
+body{
     background-image:url(../img_533.png); /* 画像のURLを指定       */
     background-size:contain;                 /* 画像のサイズを指定    */
     width:100%;                              /* 横幅のサイズを指定    */
