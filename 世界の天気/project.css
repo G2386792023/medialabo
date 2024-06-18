@@ -1,12 +1,8 @@
-.project{
-    disp-img{
-        background-image:url(../553.jpg);             /* 画像のURLを指定       */
-        background-repeat:  no-repeat;                /* 画像の繰り返しを指定  */              
-        width:auto;                                   /* 横幅のサイズを指定    */
-        height:auto;
-        opacity: 0.5;                                 /* 縦幅のサイズを指定    */
-    }
-    
+.full-img{
+    background-image:url(../img_533.png); /* 画像のURLを指定       */
+    background-size:contain;                 /* 画像のサイズを指定    */
+    width:100%;                              /* 横幅のサイズを指定    */
+    height:100%;                            /* 縦幅のサイズを指定    */
 }
 table {
     border-collapse: collapse;
