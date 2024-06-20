@@ -15,4 +15,10 @@ let gakka = [
 ];
 
 //////////////// ここから下にプログラムを書きたそう!
-
+console.log(campus.address);
+for (const value of campus.buildingD) {
+	console.log(value);
+  }
+for (const value of gakka) {
+	console.log(value.name);
+  }
