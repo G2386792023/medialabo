@@ -1,7 +1,8 @@
 html{
   background-color: #a5d4fd;
     background-image:url("553.png");
-    background-size:contain;
+    background-size: contain;
+    background-repeat: no-repeat;
     width:100%;
     height:100%;
   }
