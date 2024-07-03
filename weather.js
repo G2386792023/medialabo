@@ -50,13 +50,42 @@ let result = document.querySelector('div#result');
 function displayWeatherData() {
   result.innerHTML = `
     <h2>北京市の天気情報</h2>
-    <p>緯度: ${data.coord.lat}</p>
-    <p>経度: ${data.coord.lon}</p>
-    <p>天気: ${data.weather[0].description}</p>
-    <p>最低気温: ${data.main.temp_min} ℃</p>
-    <p>最高気温: ${data.main.temp_max} ℃</p>
-    <p>湿度: ${data.main.humidity} %</p>
-    <p>風速: ${data.wind.speed} m/s</p>
+    <table>
+        <caption>
+          <h3>北京市の天気</h3>
+        </caption>
+        <tbody>
+          <div class="full-img">
+          </div>
+          <tr>
+            <th scope="row">緯度</th>
+            <td>116.3972</td>
+          </tr>
+          <tr>
+            <th scope="row">経度</th>
+            <td>39.9075</td>
+          </tr>
+          <tr>
+            <th scope="row">天気</th>
+            <td>曇りがち</td>
+          <tr>
+            <th scope="row">最低気温</th>
+            <td>9.94</td>
+          </tr>
+          <tr>
+            <th scope="row">最高気温</th>
+            <td>9.94</td>
+          </tr>
+          <tr>
+            <th scope="row">湿度</th>
+            <td>14</td>
+          </tr>
+          <tr>
+            <th scope="row"> 風速</th>
+            <td>2.65</td>
+          </tr>
+        </tbody>
+      </table>
   `;
 }
 
