@@ -46,7 +46,22 @@ let data = {
 };
 
 ////////// 課題3-2 ここからプログラムを書こう
+let result = document.querySelector('div#result');
+function displayWeatherData() {
+  result.innerHTML = `
+    <h2>北京市の天気情報</h2>
+    <p>緯度: ${data.coord.lat}</p>
+    <p>経度: ${data.coord.lon}</p>
+    <p>天気: ${data.weather[0].description}</p>
+    <p>最低気温: ${data.main.temp_min} ℃</p>
+    <p>最高気温: ${data.main.temp_max} ℃</p>
+    <p>湿度: ${data.main.humidity} %</p>
+    <p>風速: ${data.wind.speed} m/s</p>
+  `;
+}
 
+// ページが読み込まれた時に呼び出す
+document.addEventListener('DOMContentLoaded', displayWeatherData);
 console.log("世界の天気");
 console.log("北京市の天気");
 console.log("緯度:116.3972");
