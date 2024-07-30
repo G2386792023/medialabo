@@ -1,6 +1,7 @@
 print();
 
 function print(){
+  
 ////////// 課題3-2 ここからプログラムを書こう
 const resultDiv = document.getElementById('result');
 const cityForm = document.getElementById('cityForm');
@@ -59,6 +60,31 @@ function sendRequest() {
     // 通信開始
     axios.get(url)
         .then(displayWeatherData);   // 通信成功時の処理
+        function showResult(resp) {
+    // サーバから送られてきたデータを出力
+    let data = resp.data;
+
+    // data が文字列型なら，オブジェクトに変換する
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+
+    // data をコンソールに出力
+    console.log(data);
+
+    // data.x を出力
+    console.log(data.x);
+}
+
+// 通信エラーが発生した時の処理
+function showError(err) {
+    console.log(err);
+}
+
+// 通信の最後にいつも実行する処理
+function finish() {
+    console.log('Ajax 通信が終わりました');
+}
 }
 
 function displayWeatherData(resp) {
