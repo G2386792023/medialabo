@@ -1,6 +1,6 @@
-print();
+//print();
 
-function print(){
+function print(data){
   
 ////////// 課題3-2 ここからプログラムを書こう
 const resultDiv = document.getElementById('result');
@@ -11,85 +11,8 @@ const searchButton = document.getElementById('searchButton');
 // Create elements and append them to resultDiv
 
 
-let b = document.querySelector('#submit');
-b.addEventListener('click', greeting);
-
-function greeting() {
-    let i = document.querySelector('Input[name="city"]');
-    let city = i.value;
-    console.log(city);
-}
-
-
-let submitButton = document.querySelector('#submit');
-submitButton.addEventListener('click', sendRequest);
-
-function sendRequest() {
-    let kii = document.querySelector('Input[name="city"]').value;
-    if(kii == '北京'||kii == '中華人民共和国'){
-      kii = 1816670;
-    }else if(kii == 'カイロ'||kii == 'エジプト'){
-      kii = 360630;
-    }else if(kii == 'モスクワ'||kii == 'ロシア'){
-      kii = 524901;
-    }else if(kii == 'ヨハネスブルク'||kii == '南アフリカ'){
-      kii = 993800;
-    }else if(kii == '東京'||kii == '日本'){
-      kii = 1850147;
-    }else if(kii == 'シンガポール'){
-      kii = 1880252;
-    }else if(kii == 'シドニー'||kii == 'オーストラリア'){
-      kii = 2147714;
-    }else if(kii == 'ロンドン'||kii == 'イギリス'){
-      kii = 2643743;
-    }else if(kii == 'パリ'||kii == 'フランス'){
-      kii = 2968815;
-    }else if(kii == 'リオデジャネイロ'||kii == 'ブラジル'){
-      kii = 3451189;
-    }else if(kii == 'ニューヨーク'||kii == 'アメリカ合衆国'){
-      kii = 5128581;
-    }else if(kii == 'ロサンゼルス'||kii == 'アメリカ合衆国'){
-      kii = 5368361;
-    }else{
-      resultDiv.innerHTML = '検索条件に一致するデータは存在しません';
-      return;
-    }
-    // URL を設定
-    let url = "https://www.nishita-lab.org/web-contents/jsons/openweather/"+kii+".json";
-
-    // 通信開始
-    axios.get(url)
-        .then(displayWeatherData);   // 通信成功時の処理
-        function showResult(resp) {
-    // サーバから送られてきたデータを出力
-    let data = resp.data;
-
-    // data が文字列型なら，オブジェクトに変換する
-    if (typeof data === 'string') {
-        data = JSON.parse(data);
-    }
-
-    // data をコンソールに出力
-    console.log(data);
-
-    // data.x を出力
-    console.log(data.x);
-}
-
-// 通信エラーが発生した時の処理
-function showError(err) {
-    console.log(err);
-}
-
-// 通信の最後にいつも実行する処理
-function finish() {
-    console.log('Ajax 通信が終わりました');
-}
-}
-
-function displayWeatherData(resp) {
   // サーバから送られてきたデータを取得
-  let data = resp.data;
+
  // Clear any existing content
  resultDiv.innerHTML = '';
 
@@ -184,4 +107,75 @@ function displayWeatherData(resp) {
  resultDiv.appendChild(table);
 }
 
+
+
+
+let submitButton = document.querySelector('#submit');
+submitButton.addEventListener('click', sendRequest);
+
+function sendRequest() {
+    let kii = document.querySelector('Input[name="city"]').value;
+    if(kii == '北京'||kii == '中華人民共和国'){
+      kii = 1816670;
+    }else if(kii == 'カイロ'||kii == 'エジプト'){
+      kii = 360630;
+    }else if(kii == 'モスクワ'||kii == 'ロシア'){
+      kii = 524901;
+    }else if(kii == 'ヨハネスブルク'||kii == '南アフリカ'){
+      kii = 993800;
+    }else if(kii == '東京'||kii == '日本'){
+      kii = 1850147;
+    }else if(kii == 'シンガポール'){
+      kii = 1880252;
+    }else if(kii == 'シドニー'||kii == 'オーストラリア'){
+      kii = 2147714;
+    }else if(kii == 'ロンドン'||kii == 'イギリス'){
+      kii = 2643743;
+    }else if(kii == 'パリ'||kii == 'フランス'){
+      kii = 2968815;
+    }else if(kii == 'リオデジャネイロ'||kii == 'ブラジル'){
+      kii = 3451189;
+    }else if(kii == 'ニューヨーク'||kii == 'アメリカ合衆国'){
+      kii = 5128581;
+    }else if(kii == 'ロサンゼルス'||kii == 'アメリカ合衆国'){
+      kii = 5368361;
+    }else{
+      resultDiv.innerHTML = '検索条件に一致するデータは存在しません';
+      return;
+    }
+    // URL を設定
+    let url = "https://www.nishita-lab.org/web-contents/jsons/openweather/"+kii+".json";
+
+    // 通信開始
+    axios.get(url)
+        .then(showResult)   // 通信成功時の処理
+        .catch(showError)
+		    .then(finish);
+function showResult(resp) {
+    // サーバから送られてきたデータを出力
+    let data = resp.data;
+
+    // data が文字列型なら，オブジェクトに変換する
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+
+    // data をコンソールに出力
+    console.log(data);
+    print(data);
+
+    // data.x を出力
+    console.log(data.x);
+    
+}
+
+// 通信エラーが発生した時の処理
+function showError(err) {
+    console.log(err);
+}
+
+// 通信の最後にいつも実行する処理
+function finish() {
+    console.log('Ajax 通信が終わりました');
+}
 }
